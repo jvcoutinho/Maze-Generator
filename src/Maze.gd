@@ -19,11 +19,9 @@ func _initialize_cells(number_rows: int, number_columns: int, all_connected: boo
 		cells[row].resize(number_columns)
 		
 		for column in number_columns:
-			cells[row][column] = Cell.new(row, column, _is_boundary(row, column) || all_connected)
+			cells[row][column] = Cell.new(row, column, all_connected)
+
 	return cells
-	
-func _is_boundary(row: int, column: int) -> bool:
-	return row == 0 || row == number_rows - 1 || column == 0 || column == number_columns - 1
 
 func cell_at(row: int, column: int) -> Cell:
 	return grid[row][column]
