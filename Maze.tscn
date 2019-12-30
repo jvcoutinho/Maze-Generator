@@ -8,3 +8,5 @@ script = ExtResource( 1 )
 
 [node name="MazeGenerator" type="Node" parent="."]
 script = ExtResource( 2 )
+number_rows = 10
+number_columns = 10

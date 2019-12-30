@@ -3,8 +3,8 @@ class_name Cell
 Representation of a maze cell.
 """
 
-var row: bool
-var column: bool
+var row: int
+var column: int
 var contains_goal: bool
 var walls = {}
 
