@@ -1,4 +1,3 @@
-extends Node
 class_name Cell
 """
 Representation of a maze cell.

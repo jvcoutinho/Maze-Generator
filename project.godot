@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
+"base": "Reference",
 "class": "Cell",
 "language": "GDScript",
 "path": "res://src/Cell.gd"
@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/algorithms/Eller.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "Maze",
 "language": "GDScript",
 "path": "res://src/Maze.gd"
