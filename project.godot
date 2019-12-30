@@ -10,11 +10,23 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "Cell",
+"language": "GDScript",
+"path": "res://src/Cell.gd"
+}, {
+"base": "Node",
+"class": "Maze",
+"language": "GDScript",
+"path": "res://src/Maze.gd"
+}, {
+"base": "Node",
 "class": "MazeGenerator",
 "language": "GDScript",
 "path": "res://src/Maze Generator.gd"
 } ]
 _global_script_class_icons={
+"Cell": "",
+"Maze": "",
 "MazeGenerator": ""
 }
 
