@@ -17,4 +17,4 @@ func generate_maze() -> Maze:
 		MazeGenerationAlgorithm.RECURSIVE_DIVISION:
 			return RecursiveDivision.generate_maze(number_rows, number_columns)
 		MazeGenerationAlgorithm.ELLER:
-			return EllerAlgorithm.generate_maze(number_rows, number_columns)
+			return Eller.generate_maze(number_rows, number_columns)
