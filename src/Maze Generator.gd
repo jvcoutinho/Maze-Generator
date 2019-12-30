@@ -1,7 +1,6 @@
 extends Node
 class_name MazeGenerator
 
-const Maze = preload("res://src/Maze.gd")
 enum MazeGenerationAlgorithm { RECURSIVE_BACKTRACKER, RECURSIVE_DIVISION, ELLER }
 
 export(MazeGenerationAlgorithm) var algorithm = MazeGenerationAlgorithm.RECURSIVE_BACKTRACKER

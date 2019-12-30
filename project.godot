@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "MazeGenerator",
 "language": "GDScript",
 "path": "res://src/Maze Generator.gd"
+}, {
+"base": "Reference",
+"class": "RecursiveBacktracker",
+"language": "GDScript",
+"path": "res://src/algorithms/RecursiveBacktracker.gd"
 } ]
 _global_script_class_icons={
 "Cell": "",
 "Maze": "",
-"MazeGenerator": ""
+"MazeGenerator": "",
+"RecursiveBacktracker": ""
 }
 
 [application]
