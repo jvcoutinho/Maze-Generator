@@ -10,9 +10,9 @@ var grid: Array
 func _init(number_rows: int, number_columns: int, all_connected: bool = true):
 	self.number_rows = number_rows
 	self.number_columns = number_columns
-	self.grid = _initialize_cells(number_rows, number_columns, all_connected)
+	self.grid = _initialize_cells(all_connected)
 
-func _initialize_cells(number_rows: int, number_columns: int, all_connected: bool):
+func _initialize_cells(all_connected: bool):
 	var cells = []
 	for row in number_rows:
 		cells.append([])

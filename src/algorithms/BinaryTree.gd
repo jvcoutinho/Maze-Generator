@@ -1,6 +1,7 @@
+extends Algorithm
 class_name BinaryTree
 
-static func generate_maze(number_rows: int, number_columns: int) -> Maze:
+func generate_maze(number_rows: int, number_columns: int) -> Maze:
 	var maze = Maze.new(number_rows, number_columns)
 		
 	for row in number_rows:
@@ -8,7 +9,7 @@ static func generate_maze(number_rows: int, number_columns: int) -> Maze:
 			_carve_passage(cell, maze)
 	return maze
 	
-static func _carve_passage(cell: Cell, maze: Maze):
+func _carve_passage(cell: Cell, maze: Maze):
 	if cell.column != maze.number_columns - 1 || cell.row != maze.number_rows - 1:
 		if cell.column == maze.number_columns - 1:
 			Utils.remove_walls_between(cell, maze.cell_at(cell.row + 1, cell.column))

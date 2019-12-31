@@ -1,6 +1,7 @@
+extends Algorithm
 class_name Prim
 
-static func generate_maze(number_rows: int, number_columns: int) -> Maze:
+func generate_maze(number_rows: int, number_columns: int) -> Maze:
 	var maze = Maze.new(number_rows, number_columns)
 		
 	var random_cell = Utils.get_random_cell(maze)
@@ -29,16 +30,16 @@ class Edge: # wall
 		self.cell1 = cell1
 		self.cell2 = cell2
 
-static func _get_edges(cell: Cell, maze: Maze) -> Array:
+func _get_edges(cell: Cell, maze: Maze) -> Array:
 	var edges = []
 	for neighbour in Utils.get_unvisited_neighbours(cell, maze):
 		edges.append(Edge.new(cell, neighbour))
 	return edges
 	
-static func _mark_and_add_edges(cell: Cell, maze: Maze, frontier: Array) -> void:
+func _mark_and_add_edges(cell: Cell, maze: Maze, frontier: Array) -> void:
 	cell.is_visited = true
 	for edge in _get_edges(cell, maze):
 		frontier.append(edge) 
 
-static func _only_one_is_visited(cell1: Cell, cell2: Cell) -> bool:
+func _only_one_is_visited(cell1: Cell, cell2: Cell) -> bool:
 	return (cell1.is_visited or cell2.is_visited) and not (cell1.is_visited && cell2.is_visited)

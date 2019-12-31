@@ -1,17 +1,20 @@
+extends Algorithm
 class_name Eller
 
-static func generate_maze(number_rows: int, number_columns: int) -> Maze:
+var state
+
+func generate_maze(number_rows: int, number_columns: int) -> Maze:
 	var maze = Maze.new(number_rows, number_columns)
 	
-	var state = State.new()
+	state = State.new()
 	
 	state.instantiate_set_for_each_cell(maze.get_row(0))
 	for row in number_rows - 1:
-		_join_adjacent_cells(maze.get_row(row), true, state)
-		state = _randomly_connect_cells(maze.get_row(row), maze.get_row(row + 1), state)
+		_join_adjacent_cells(maze.get_row(row), true)
+		_randomly_connect_cells(maze.get_row(row), maze.get_row(row + 1))
 		state.instantiate_set_for_each_cell(maze.get_row(row + 1))
 
-	_join_adjacent_cells(maze.get_row(number_rows - 1), false, state)
+	_join_adjacent_cells(maze.get_row(number_rows - 1), false)
 	
 	return maze
 
@@ -45,7 +48,7 @@ class State:
 		
 		for cell in sets[set2].elements():
 			add(cell, set1)
-		sets.erase(set2)
+		assert sets.erase(set2)
 	
 	func add(cell: Cell, set: int) -> void:
 		cells[cell] = set
@@ -53,7 +56,7 @@ class State:
 			sets[set] = Set.new()
 		sets[set].add(cell)
 	
-	func sets() -> Array:
+	func get_sets() -> Array:
 		return sets.keys()
 
 class Set:
@@ -68,37 +71,36 @@ class Set:
 	func elements() -> Array:
 		return set.keys()
 
-static func _join_adjacent_cells(row: Array, randomly: bool, state: State):
+func _join_adjacent_cells(row: Array, randomly: bool):
 	for i in row.size() - 1:
 		var cell = row[i]
 		var adjacent = row[i + 1]
 		
 		if not state.same_set(cell, adjacent):
 			if not randomly or randi() % 2 == 0:
-				_join_horizontally(cell, adjacent, state)
+				_join_horizontally(cell, adjacent)
 				
-static func _randomly_connect_cells(row: Array, next_row: Array, state: State) -> State:
+func _randomly_connect_cells(row: Array, next_row: Array):
 	var next_state = state.next()
-	for set in state.sets():
+	for set in state.get_sets():
 		var cells = _get_random_cells(state.sets[set])
 		for cell in cells:
 			var index = row.find(cell)
 			_join_vertically(row[index], next_row[index], set, next_state)
-	return next_state
+	state = next_state
 	
-static func _get_random_cells(set: Set) -> Array:
+func _get_random_cells(set: Set) -> Array:
 	var cells: Array = set.elements()
 	cells.shuffle()
 	cells.resize(1 + randi() % cells.size())
 	return cells
 
-static func _join_horizontally(cell: Cell, adjacent: Cell, state: State):
+func _join_horizontally(cell: Cell, adjacent: Cell):
 	cell.walls.E = false
 	adjacent.walls.W = false
 	state.merge(cell, adjacent)
 	
-static func _join_vertically(cell: Cell, adjacent: Cell, set: int, state: State):
-	assert cell != null
+func _join_vertically(cell: Cell, adjacent: Cell, set: int, state: State):
 	cell.walls.N = false
 	adjacent.walls.S = false
 	state.add(adjacent, set)

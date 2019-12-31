@@ -1,8 +1,9 @@
+extends Algorithm
 class_name RecursiveDivision
 
 enum Orientation { HORIZONTAL, VERTICAL, NONE }
 
-static func generate_maze(number_rows: int, number_columns: int) -> Maze:
+func generate_maze(number_rows: int, number_columns: int) -> Maze:
 	var maze = Maze.new(number_rows, number_columns, false)
 	
 	_put_walls_at_boundaries(maze)
@@ -23,7 +24,7 @@ static func generate_maze(number_rows: int, number_columns: int) -> Maze:
 	
 	return maze
 	
-static func _put_walls_at_boundaries(maze: Maze) -> void:
+func _put_walls_at_boundaries(maze: Maze) -> void:
 	for row in maze.number_rows:
 		maze.cell_at(row, 0).walls.W = true
 		maze.cell_at(row, maze.number_columns - 1).walls.E = true
@@ -32,7 +33,7 @@ static func _put_walls_at_boundaries(maze: Maze) -> void:
 		maze.cell_at(0, column).walls.S = true
 		maze.cell_at(maze.number_rows - 1, column).walls.N = true
 		
-static func _choose_orientation(field: Dictionary):
+func _choose_orientation(field: Dictionary):
 	var width = field.right - field.left
 	var height = field.top - field.bottom
 	
@@ -46,7 +47,7 @@ static func _choose_orientation(field: Dictionary):
 	else: # end interaction with field
 		return Orientation.NONE
 		
-static func _bisect_vertically(field: Dictionary, maze: Maze) -> Array:
+func _bisect_vertically(field: Dictionary, maze: Maze) -> Array:
 	var column_to_bisect = _get_random_value_at_range(field.left, field.right - 1)
 	for row in range(field.bottom, field.top):
 		maze.cell_at(row, column_to_bisect).walls.E = true
@@ -60,7 +61,7 @@ static func _bisect_vertically(field: Dictionary, maze: Maze) -> Array:
 	var right_subfield = { "bottom": field.bottom, "left": column_to_bisect + 1, "right": field.right, "top": field.top }
 	return [left_subfield, right_subfield]
 	
-static func _bisect_horizontally(field: Dictionary, maze: Maze) -> Array:
+func _bisect_horizontally(field: Dictionary, maze: Maze) -> Array:
 	var row_to_bisect = _get_random_value_at_range(field.bottom, field.top - 1)
 	for column in range(field.left, field.right):
 		maze.cell_at(row_to_bisect + 1, column).walls.S = true
@@ -74,5 +75,5 @@ static func _bisect_horizontally(field: Dictionary, maze: Maze) -> Array:
 	var bottom_subfield = { "bottom": field.bottom, "left": field.left, "right": field.right, "top": row_to_bisect + 1 }
 	return [top_subfield, bottom_subfield]
 	
-static func _get_random_value_at_range(start: int, end: int):
+func _get_random_value_at_range(start: int, end: int):
 	return start + randi() % (end - start)

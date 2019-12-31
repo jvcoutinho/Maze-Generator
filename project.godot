@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Reference",
+"class": "Algorithm",
+"language": "GDScript",
+"path": "res://src/algorithms/Algorithm.gd"
+}, {
+"base": "Algorithm",
 "class": "BinaryTree",
 "language": "GDScript",
 "path": "res://src/algorithms/BinaryTree.gd"
@@ -19,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Cell.gd"
 }, {
-"base": "Reference",
+"base": "Algorithm",
 "class": "Eller",
 "language": "GDScript",
 "path": "res://src/algorithms/Eller.gd"
@@ -34,17 +39,17 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Maze Generator.gd"
 }, {
-"base": "Reference",
+"base": "Algorithm",
 "class": "Prim",
 "language": "GDScript",
 "path": "res://src/algorithms/Prim.gd"
 }, {
-"base": "Reference",
+"base": "Algorithm",
 "class": "RecursiveBacktracker",
 "language": "GDScript",
 "path": "res://src/algorithms/RecursiveBacktracker.gd"
 }, {
-"base": "Reference",
+"base": "Algorithm",
 "class": "RecursiveDivision",
 "language": "GDScript",
 "path": "res://src/algorithms/RecursiveDivision.gd"
@@ -55,6 +60,7 @@ _global_script_classes=[ {
 "path": "res://src/algorithms/Utils.gd"
 } ]
 _global_script_class_icons={
+"Algorithm": "",
 "BinaryTree": "",
 "Cell": "",
 "Eller": "",
@@ -70,6 +76,10 @@ _global_script_class_icons={
 
 config/name="Maze Generator"
 config/icon="res://icon.png"
+
+[debug]
+
+gdscript/warnings/shadowed_variable=false
 
 [rendering]
 

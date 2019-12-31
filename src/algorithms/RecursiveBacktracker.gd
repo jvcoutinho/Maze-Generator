@@ -1,6 +1,7 @@
+extends Algorithm
 class_name RecursiveBacktracker
 
-static func generate_maze(number_rows: int, number_columns: int) -> Maze:
+func generate_maze(number_rows: int, number_columns: int) -> Maze:
 	var maze = Maze.new(number_rows, number_columns)
 		
 	var current_cell = Utils.get_random_cell(maze)
