@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Reference",
+"class": "BinaryTree",
+"language": "GDScript",
+"path": "res://src/algorithms/BinaryTree.gd"
+}, {
+"base": "Reference",
 "class": "Cell",
 "language": "GDScript",
 "path": "res://src/Cell.gd"
@@ -50,6 +55,7 @@ _global_script_classes=[ {
 "path": "res://src/algorithms/Utils.gd"
 } ]
 _global_script_class_icons={
+"BinaryTree": "",
 "Cell": "",
 "Eller": "",
 "Maze": "",

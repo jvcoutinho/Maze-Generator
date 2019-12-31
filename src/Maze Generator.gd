@@ -1,7 +1,7 @@
 extends Node
 class_name MazeGenerator
 
-enum MazeGenerationAlgorithm { RECURSIVE_BACKTRACKER, RECURSIVE_DIVISION, ELLER, PRIM }
+enum MazeGenerationAlgorithm { RECURSIVE_BACKTRACKER, RECURSIVE_DIVISION, ELLER, PRIM, BINARY_TREE }
 
 export(MazeGenerationAlgorithm) var algorithm = MazeGenerationAlgorithm.RECURSIVE_BACKTRACKER
 export var random_seed : int = 255
@@ -20,3 +20,5 @@ func generate_maze() -> Maze:
 			return Eller.generate_maze(number_of_rows, number_of_columns)
 		MazeGenerationAlgorithm.PRIM:
 			return Prim.generate_maze(number_of_rows, number_of_columns)
+		MazeGenerationAlgorithm.BINARY_TREE:
+			return BinaryTree.generate_maze(number_of_rows, number_of_columns)
