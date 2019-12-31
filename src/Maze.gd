@@ -26,6 +26,15 @@ func _initialize_cells(number_rows: int, number_columns: int, all_connected: boo
 func cell_at(row: int, column: int) -> Cell:
 	return grid[row][column]
 	
+func get_row(row: int) -> Array:
+	return grid[row]
+	
+func get_column(column: int) -> Array:
+	var cells = []
+	for row in number_rows:
+		cells.append(cell_at(row, column))
+	return cells
+	
 func get_neighbours(cell: Cell) -> Array:
 	var neighbours = []
 	if cell.column > 0: # Get western neighbour

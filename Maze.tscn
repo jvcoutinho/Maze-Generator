@@ -8,4 +8,4 @@ script = ExtResource( 1 )
 
 [node name="MazeGenerator" type="Node" parent="."]
 script = ExtResource( 2 )
-algorithm = 1
+algorithm = 2
