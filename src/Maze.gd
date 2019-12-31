@@ -7,7 +7,7 @@ var number_rows: int
 var number_columns: int
 var grid: Array 
 
-func _init(number_rows: int, number_columns: int, all_connected: bool):
+func _init(number_rows: int, number_columns: int, all_connected: bool = true):
 	self.number_rows = number_rows
 	self.number_columns = number_columns
 	self.grid = _initialize_cells(number_rows, number_columns, all_connected)

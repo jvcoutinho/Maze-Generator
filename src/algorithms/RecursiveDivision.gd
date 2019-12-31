@@ -15,7 +15,9 @@ static func generate_maze(number_rows: int, number_columns: int) -> Maze:
 		
 		var orientation = _choose_orientation(current_field)
 		if orientation != Orientation.NONE:
-			var subfields = _bisect_horizontally(current_field, maze) if orientation == Orientation.HORIZONTAL else _bisect_vertically(current_field, maze)
+			var subfields = _bisect_horizontally(current_field, maze) \
+					if orientation == Orientation.HORIZONTAL \
+					else _bisect_vertically(current_field, maze)
 			stack.push_back(subfields[0])
 			stack.push_back(subfields[1]) 
 	
