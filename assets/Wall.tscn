@@ -4,5 +4,6 @@
 albedo_color = Color( 0.556863, 0.215686, 0.215686, 1 )
 
 [node name="Spatial" type="CSGBox"]
+use_collision = true
 depth = 0.23612
 material = SubResource( 1 )

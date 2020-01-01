@@ -4,4 +4,5 @@
 
 [node name="CSGMesh" type="CSGMesh"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0235181, 0 )
+use_collision = true
 mesh = SubResource( 1 )

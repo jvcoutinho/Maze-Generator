@@ -8,7 +8,8 @@ in the inspector or in code and get the maze by invoking 'generate_maze()'.
 You can check the description of the algorithms (and which is suited best for your project) in the below links:
 	http://people.cs.ksu.edu/~ashley78/wiki.ashleycoleman.me/index.php/Perfect_Maze_Generators.html
 	http://weblog.jamisbuck.org/2011/2/7/maze-generation-algorithm-recap
-
+	
+Inspired on https://assetstore.unity.com/packages/tools/modeling/maze-generator-38689.
 You are welcome to contribute in https://github.com/jvcoutinho/Maze-Generator.
 """
 
