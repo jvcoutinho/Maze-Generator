@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="PlaneMesh" id=1]
+
+[node name="CSGMesh" type="CSGMesh"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0235181, 0 )
+mesh = SubResource( 1 )

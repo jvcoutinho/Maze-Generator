@@ -3,8 +3,17 @@
 [ext_resource path="res://Maze.gd" type="Script" id=1]
 [ext_resource path="res://src/Maze Generator.gd" type="Script" id=2]
 
-[node name="Maze" type="Node2D"]
+[node name="Maze" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.246563, 0 )
 script = ExtResource( 1 )
 
 [node name="MazeGenerator" type="Node" parent="."]
 script = ExtResource( 2 )
+algorithm = 2
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 88.4481, 0 )
+projection = 1
+current = true
+fov = -5.00896e-006
+size = 49.4373
