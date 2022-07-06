@@ -48,7 +48,7 @@ class State:
 		
 		for cell in sets[set2].elements():
 			add(cell, set1)
-		assert sets.erase(set2)
+		assert(sets.erase(set2))
 	
 	func add(cell: Cell, set: int) -> void:
 		cells[cell] = set

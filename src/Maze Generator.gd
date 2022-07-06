@@ -36,3 +36,5 @@ func _get_algorithm() -> Algorithm:
 			return Prim.new()
 		MazeGenerationAlgorithm.BINARY_TREE:
 			return BinaryTree.new()
+		_:
+			return Algorithm.new()
